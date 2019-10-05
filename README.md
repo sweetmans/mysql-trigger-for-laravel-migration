@@ -17,7 +17,7 @@ The package currently supports MySQL only.
 To get the latest version, simply require the package using [Composer](https://getcomposer.org):
 
 ```bash
-$ composer require ntimyeboah/laravel-database-trigger
+$ composer require sweetmancc/mysql-trigger-for-laravel-migration
 ```
 
 Once installed, if you are not using automatic package discovery, then you need to register the `NtimYeboah\LaravelDatabaseTrigger\TriggerServiceProvider` service provider in your `config/app.php`.
@@ -127,16 +127,16 @@ $ composer test
 
 ## Changelog
 
-Please see [CHANGELOG](https://github.com/NtimYeboah/laravel-database-trigger/blob/master/CHANGELOG.md) for more information on what has changed recently.
+Please see [CHANGELOG](https://github.com/sweetmans/mysql-trigger-for-laravel-migration/blob/master/CHANGELOG.md) for more information on what has changed recently.
 
 ## Contributing
 
-Please see [CONTRIBUTING](https://github.com/NtimYeboah/laravel-database-trigger/blob/master/CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](https://github.com/sweetmans/mysql-trigger-for-laravel-migration/blob/master/CONTRIBUTING.md) for details.
 
 
 ## Security
 
-If you discover a security vulnerability within this package, please send an e-mail to Ntim Yeboah at ntimobedyeboah@gmail.com. All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within this package, please send an e-mail to Andy Q at sweetmancc@gmail.com. All security vulnerabilities will be promptly addressed.
 
 
 ## License
