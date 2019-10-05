@@ -42,7 +42,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Sweetmancc\\LaravelDatabaseTrigger\\TriggerServiceProvider"
+                "Sweetmancc\\DatabaseTrigger\\TriggerServiceProvider"
             ]
         }
     }
