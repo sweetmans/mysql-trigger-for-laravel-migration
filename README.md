@@ -11,7 +11,7 @@ A trigger is a named database object that is associated with a table, and that a
 
 ## Installation
 
-Laravel Database Trigger requires at least [PHP](https://php.net) 7.1. This particular version supports laravel at least v5.5.
+Laravel Database Trigger requires at least [PHP](https://php.net) 7.2. This particular version supports laravel at least v6.0
 The package currently supports MySQL only.
 
 To get the latest version, simply require the package using [Composer](https://getcomposer.org):
@@ -20,7 +20,7 @@ To get the latest version, simply require the package using [Composer](https://g
 $ composer require sweetmancc/mysql-trigger-for-laravel-migration
 ```
 
-Once installed, if you are not using automatic package discovery, then you need to register the `NtimYeboah\LaravelDatabaseTrigger\TriggerServiceProvider` service provider in your `config/app.php`.
+Once installed, if you are not using automatic package discovery, then you need to register the `Sweetmancc\DatabaseTrigger\TriggerServiceProvider` service provider in your `config/app.php`.
 
 
 ## Usage
@@ -28,7 +28,7 @@ Create a trigger migration file using the `make:trigger` artisan command.
 The command requires the name of the trigger, name of the event object table, action timing and the event that activates the trigger.
 
 ```bash
-$ php artisan make:trigger after_users_update
+$ php artisan make:trigger after_users_posts_insert
 ```
 
 ### Event object table
@@ -56,7 +56,7 @@ The following trigger migration file will be generated for a trigger that uses `
 ```php
 
 use Illuminate\Database\Migrations\Migration;
-use NtimYeboah\LaravelDatabaseTrigger\TriggerFacade as Schema;
+use Sweetmancc\DatabaseTrigger\TriggerFacade as Schema;
 
 class CreateAfterUsersUpdateTrigger extends Migration
 {
@@ -70,7 +70,7 @@ class CreateAfterUsersUpdateTrigger extends Migration
         Schema::create('after_users_update')
             ->on('users')
             ->statement(function() {
-                return '//...';
+                return '//You logic, Don't forget ";" ';
             })
             ->after()
             ->update();
@@ -104,10 +104,10 @@ The following is an example trigger migration to insert into the `users_audit` t
      */
     public function up()
     {
-        Schema::create('after_users_update')
-            ->on('users')
+        Schema::create('after_user_posts_insert')
+            ->on('user_posts')
             ->statement(function() {
-                return 'insert into `users_audit` (`name`, `email`) values (old.name, old.email);';
+                return 'UPDATE user_profiles SET postCount = postCount + 1 WHERE id = NEW.user_id;';
             })
             ->after()
             ->update();
@@ -115,6 +115,12 @@ The following is an example trigger migration to insert into the `users_audit` t
 
 ...
 
+```
+
+### Update your database migration
+
+```php
+php artisan migrate
 ```
 
 ## Testing
