@@ -67,7 +67,7 @@ class CreateAfterUsersUpdateTrigger extends Migration
      */
     public function up()
     {
-        Schema::create('after_users_update')
+        Schema::create('after_users_posts_insert')
             ->on('user_posts')
             ->statement(function() {
                 return '//You logic, Don't forget ";" ';
@@ -83,7 +83,7 @@ class CreateAfterUsersUpdateTrigger extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users.after_users_update');
+        Schema::dropIfExists('users.after_users_posts_insert');
     }
 }
 
@@ -107,6 +107,7 @@ The following is an example trigger migration to insert into the `users_audit` t
         Schema::create('after_user_posts_insert')
             ->on('user_posts')
             ->statement(function() {
+                //It means that when insert an row into user_posts table It will inrease 1 to user_profiles table where row record user_id same as NEW insert to user_posts table user_id field.
                 return 'UPDATE user_profiles SET postCount = postCount + 1 WHERE id = NEW.user_id;';
             })
             ->after()
@@ -121,6 +122,32 @@ The following is an example trigger migration to insert into the `users_audit` t
 
 ```php
 php artisan migrate
+```
+
+### My mysql Database Tables `user_posts` & `user_profiles`
+```mysql
+CREATE TABLE `user_posts` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `user_id` bigint(20) unsigned NOT NULL,
+  `text` text COLLATE utf8mb4_unicode_ci,
+  PRIMARY KEY (`id`),
+  KEY `user_posts_user_id_foreign` (`user_id`),
+  CONSTRAINT `user_posts_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `user_profiles` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) unsigned NOT NULL,
+  `postCount` int(11) NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_profiles_user_id_unique` (`user_id`),
+  CONSTRAINT `user_profiles_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 ```
 
 ## Testing
