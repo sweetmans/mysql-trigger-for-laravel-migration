@@ -51,7 +51,7 @@ The event to activate trigger. A trigger event can be `insert`, `update` and `de
 `delete` - Activate trigger when a delete operation is performed on the event object table.
 
 
-The following trigger migration file will be generated for a trigger that uses `after_users_update` as a name, `users` as event object table name, `after` as action timing and `update` as event.
+The following trigger migration file will be generated for a trigger that uses `after_users_posts_insert` as a name, `user_posts` as event object table name, `after` as action timing and `insert` as event.
 
 ```php
 
@@ -68,7 +68,7 @@ class CreateAfterUsersUpdateTrigger extends Migration
     public function up()
     {
         Schema::create('after_users_update')
-            ->on('users')
+            ->on('user_posts')
             ->statement(function() {
                 return '//You logic, Don't forget ";" ';
             })
