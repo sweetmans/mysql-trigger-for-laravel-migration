@@ -1,11 +1,11 @@
 <?php
 
-namespace NtimYeboah\LaravelDatabaseTrigger\Command;
+namespace Sweetmancc\DatabaseTrigger\Command;
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Composer;
 use Illuminate\Database\Console\Migrations\BaseCommand;
-use NtimYeboah\LaravelDatabaseTrigger\Migrations\MigrationCreator;
+use Sweetmancc\DatabaseTrigger\Migrations\MigrationCreator;
 
 class TriggerMakeCommand extends BaseCommand
 {

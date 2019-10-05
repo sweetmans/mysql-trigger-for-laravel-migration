@@ -1,6 +1,6 @@
 <?php
 
-namespace NtimYeboah\LaravelDatabaseTrigger\Schema;
+namespace Sweetmancc\DatabaseTrigger\Schema;
 
 use Closure;
 use Illuminate\Support\Fluent;

@@ -1,11 +1,11 @@
 <?php
 
-namespace NtimYeboah\LaravelDatabaseTrigger\Test;
+namespace Sweetmancc\DatabaseTrigger\Test;
 
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
-use NtimYeboah\LaravelDatabaseTrigger\Schema\Blueprint;
-use NtimYeboah\LaravelDatabaseTrigger\Schema\Grammars\MySqlGrammar;
+use Sweetmancc\DatabaseTrigger\Schema\Blueprint;
+use Sweetmancc\DatabaseTrigger\Schema\Grammars\MySqlGrammar;
 
 class MySqlGrammarTest extends TestCase
 {

@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to `laravel-database-trigger` will be documented in this file.
+All notable changes to `mysql-trigger-for-laravel-migration` will be documented in this file.
 
-### 1.0.0
-- Initial release
+### 1.0.2
+- support laravel 6.0

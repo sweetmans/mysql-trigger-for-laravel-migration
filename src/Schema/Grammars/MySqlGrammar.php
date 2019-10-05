@@ -1,12 +1,12 @@
 <?php
 
-namespace NtimYeboah\LaravelDatabaseTrigger\Schema\Grammars;
+namespace Sweetmancc\DatabaseTrigger\Schema\Grammars;
 
 use InvalidArgumentException;
 use Illuminate\Support\Fluent;
 use Illuminate\Database\Connection;
 use Illuminate\Database\Schema\Grammars\Grammar;
-use NtimYeboah\LaravelDatabaseTrigger\Schema\Blueprint;
+use Sweetmancc\DatabaseTrigger\Schema\Blueprint;
 
 class MySqlGrammar extends Grammar
 {

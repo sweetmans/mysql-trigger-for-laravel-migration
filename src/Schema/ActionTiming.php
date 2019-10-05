@@ -1,6 +1,6 @@
 <?php
 
-namespace NtimYeboah\LaravelDatabaseTrigger\Schema;
+namespace Sweetmancc\DatabaseTrigger\Schema;
 
 class ActionTiming
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace NtimYeboah\LaravelDatabaseTrigger\Test;
+namespace Sweetmancc\DatabaseTrigger\Test;
 
 use Mockery as m;
 use PHPUnit\Framework\TestCase;

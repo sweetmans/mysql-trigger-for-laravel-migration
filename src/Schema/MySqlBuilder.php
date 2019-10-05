@@ -1,10 +1,10 @@
 <?php
 
-namespace NtimYeboah\LaravelDatabaseTrigger\Schema;
+namespace Sweetmancc\DatabaseTrigger\Schema;
 
 use Closure;
 use Illuminate\Database\Connection;
-use NtimYeboah\LaravelDatabaseTrigger\Schema\Grammars\MySqlGrammar;
+use Sweetmancc\DatabaseTrigger\Schema\Grammars\MySqlGrammar;
 
 class MySqlBuilder
 {
